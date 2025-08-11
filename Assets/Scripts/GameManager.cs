@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     const string GREEN_MESSAGE = "Green's Turn";
 
     Color RED_COLOR = new Color(231f/255f, 29f/255f, 54f/255f, 1f);
-    Color GREEN_COLOR = new Color(0f, 222f/255f, 1f, 1f);
+    Color GREEN_COLOR = new Color(0f, 222f/255f, 0f, 1f);
 
     Board myBoard;
 
