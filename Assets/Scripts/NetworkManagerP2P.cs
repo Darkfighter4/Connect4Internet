@@ -21,7 +21,7 @@ public class NetworkManagerP2P : MonoBehaviour
 
     private bool triggerLoadScene = false;
 
-    // 🔧 Fila para processar jogadas na thread principal
+    
     private Queue<int> pendingMoves = new Queue<int>();
     private readonly object moveLock = new object();
 
@@ -37,14 +37,14 @@ public class NetworkManagerP2P : MonoBehaviour
 
     void Update()
     {
-        // 🔁 Gatilho para carregar cena após conexão
+        
         if (triggerLoadScene)
         {
             triggerLoadScene = false;
             OnConnectedToHost?.Invoke();
         }
 
-        // ✅ Processa jogadas na thread principal
+        
         lock (moveLock)
         {
             while (pendingMoves.Count > 0)
@@ -128,7 +128,7 @@ public class NetworkManagerP2P : MonoBehaviour
                     {
                         Debug.Log($"Mensagem recebida: coluna {column}");
 
-                        // ✅ Enfileira jogada para ser processada na thread principal
+                        
                         lock (moveLock)
                         {
                             pendingMoves.Enqueue(column);

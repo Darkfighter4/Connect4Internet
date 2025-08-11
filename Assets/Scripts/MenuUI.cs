@@ -10,7 +10,7 @@ public class MenuUI : MonoBehaviour
     {
         NetworkManagerP2P.Instance.StartHost(5010);
         Debug.Log("Host iniciado.");
-        SceneManager.LoadScene("Gameplayyy");
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void OnClickJoin()
@@ -33,6 +33,6 @@ public class MenuUI : MonoBehaviour
     {
         Debug.Log("Conectado ao host, carregando cena.");
         NetworkManagerP2P.Instance.OnConnectedToHost -= OnConnectedHandler; // Remove inscrição para evitar duplicação
-        SceneManager.LoadScene("Gameplayyy");
+        SceneManager.LoadScene("Gameplay");
     }
 }
