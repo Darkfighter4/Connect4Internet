@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Remover inscrição para evitar vazamento
+        
         if(NetworkManagerP2P.Instance != null)
             NetworkManagerP2P.Instance.OnMoveReceived -= OnMoveReceived;
     }
@@ -75,10 +75,10 @@ public class GameManager : MonoBehaviour
 
                 int columnIndex = colComponent.col - 1;
 
-                // Aplica a jogada local
+               
                 ApplyMove(columnIndex);
 
-                // Envia a jogada para o outro jogador
+                
                 NetworkManagerP2P.Instance.SendMove(columnIndex);
             }
         }
